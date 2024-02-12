@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Republic Day!</title>
+  <style>
+    /* CSS */
+
+body {
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    width: fit-content;
+    -webkit-background-clip: text;
+    background: linear-gradient(0.5turn, orangered, white, skyblue, green);
+}
+
+.flag {
+    width: 200px;
+    height: 233px;
+    margin-bottom: 30px;
+
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.song {
+    margin-bottom: 30px;
+}
+
+audio {
+    width: 100%;
+}
+
+.wishes {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+p {
+    margin-bottom: 15px;
+}
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Happy Republic Day - 2024 🫡</h1>
+
+    <div class="flag">
+      <img src="flag.jpg" alt="Indian flag">
+    </div>
+
+    <div class="song">
+      <audio src="india.mp3" autoplay loop alt="music">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div class="wishes">
+      <p>On this special day, we celebrate the birth of our nation and the adoption of our constitution. We are proud to be Indians and we are grateful for the freedom and democracy that we enjoy.</p>
+
+      <p>Let us all come together and work towards building a better India. A India where everyone is equal, where everyone has the opportunity to succeed, and where everyone can live in peace and harmony.</p>
+
+      <p>Jai Hind!</p>
+    </div>
+  </div>
+
+  <script>
+    /* JavaScript */
+
+// Get the audio element
+const audio = document.querySelector('audio');
+
+// Create a new AudioContext
+const context = new AudioContext();
+
+// Create a new MediaElementAudioSourceNode
+const source = context.createMediaElementSource(audio);
+
+// Create a new GainNode
+const gainNode = context.createGain();
+
+// Connect the source to the gain node
+source.connect(gainNode);
+
+// Connect the gain node to the destination
+gainNode.connect(context.destination);
+
+// Set the gain to 0.5
+gainNode.gain.value = 0.5;
+
+// Create a new function to handle the volume slider
+const handleVolume = (e) => {
+  // Get the value of the slider
+  const value = e.target.value;
+
+  // Set the gain to the value of the slider
+  gainNode.gain.value = value;
+};
+
+// Get the volume slider
+const volumeSlider = document.querySelector('#volume');
+
+// Add an event listener to the volume slider
+volumeSlider.addEventListener('input', handleVolume);
+
+  </script>
+</body>
+</html>
